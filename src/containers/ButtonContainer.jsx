@@ -17,6 +17,7 @@ const onClickNagativeButtonHandler = () => {
 export default function ButtonContainer() {
   return (
     <section>
+      <h1>Button</h1>
       <StButtons>
         <Button
           onClick={onClickPrimaryButtonHandler}

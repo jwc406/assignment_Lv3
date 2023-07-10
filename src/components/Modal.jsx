@@ -2,18 +2,21 @@ import React from "react";
 import { useRef, useEffect } from "react";
 import { styled } from "styled-components";
 
-export default function Modal({ setModalOpen }) {
+import Button from "./Button";
+
+import { StButtons } from "../styles/theme";
+
+export default function Modal({ id, setModalOpen }) {
   const closeModal = () => {
-    setModalOpen(false);
+    setModalOpen(id, false);
   };
 
-  const modalRef = useRef(null); // eslint-disable-line
+  const modalRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        setModalOpen(false);
-      }
+      if (id === 1 && modalRef.current && !modalRef.current.contains(e.target))
+        setModalOpen(id, false);
     };
 
     document.addEventListener("mousedown", handler);
@@ -21,39 +24,81 @@ export default function Modal({ setModalOpen }) {
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  });
+  }, [id, setModalOpen]);
 
   return (
-    <StModal ref={modalRef}>
-      <button onClick={closeModal}>X</button>
-      <p>모달창입니다.</p>
+    <StModal ref={modalRef} id={id}>
+      {id === 0 ? (
+        <>
+          <p>
+            닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지
+            않아요.
+          </p>
+          <StModalButtons>
+            <Button onClick={closeModal} color="#FAB1A0" type="S" fc="#D63031">
+              닫기
+            </Button>
+            <Button color="#55efc4" type="S">
+              확인
+            </Button>
+          </StModalButtons>
+        </>
+      ) : (
+        <>
+          <p>
+            닫기 버튼 1개가 있고, <br />
+            외부 영역을 누르면 모달이 닫혀요.
+          </p>
+          <StCloseButton onClick={closeModal}>X</StCloseButton>
+        </>
+      )}
     </StModal>
   );
 }
 
 const StModal = styled.div`
-  width: 300px;
-  height: 200px;
-
-  /* 최상단 위치 */
-  z-index: 999;
-
-  /* 중앙 배치 */
-  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
-  /* translate는 본인의 크기 기준으로 작동한다. */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 999;
 
-  /* 모달창 디자인 */
-  background-color: gray;
-  border: 1px solid black;
-  border-radius: 8px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 30px;
 
-  & button {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
+  ${({ id }) => {
+    switch (id) {
+      case 0:
+        return `
+            width: 500px;
+            height: 300px;
+        `;
+      case 1:
+        return `
+            width: 300px;
+            height: 200px;
+        `;
+      default:
+        return `
+            width: 300px;
+            height: 200px;
+        `;
+    }
+  }};
+`;
+
+const StModalButtons = styled(StButtons)`
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+`;
+
+const StCloseButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 `;

@@ -27,31 +27,34 @@ export default function InputContainer() {
   };
 
   return (
-    <StInputSection>
-      <StInputBox>
-        <p>이름</p>
-        <input
-          type="text"
-          onChange={(e) => onChangeNameHandler(e)}
-          value={name}
-        />
-      </StInputBox>
-      <StInputBox>
-        <p>가격</p>
-        <input
-          type="text"
-          onChange={(e) => onChangePriceHandler(e)}
-          value={price}
-        />
-      </StInputBox>
-      <Button onClick={onClickSaveButttonHandler} color="#55efc4" type="S">
-        저장
-      </Button>
-    </StInputSection>
+    <section>
+      <h1>Input</h1>
+      <StInputContainer>
+        <StInputBox>
+          <p>이름</p>
+          <input
+            type="text"
+            onChange={(e) => onChangeNameHandler(e)}
+            value={name}
+          />
+        </StInputBox>
+        <StInputBox>
+          <p>가격</p>
+          <input
+            type="text"
+            onChange={(e) => onChangePriceHandler(e)}
+            value={price}
+          />
+        </StInputBox>
+        <Button onClick={onClickSaveButttonHandler} color="#55efc4" type="S">
+          저장
+        </Button>
+      </StInputContainer>
+    </section>
   );
 }
 
-const StInputSection = styled.div`
+const StInputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;

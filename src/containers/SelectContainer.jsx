@@ -15,7 +15,7 @@ export default function SelectContainer() {
 
   return (
     <StSectionContainer>
-      <h1>Modal</h1>
+      <h1>Select</h1>
       <StSelectWrapper>
         <Select
           id={0}
@@ -34,7 +34,7 @@ export default function SelectContainer() {
 
 const StSectionContainer = styled.section`
   border: 3px solid #dddddd;
-  margin-top: 50px;
+  margin: 50px 0;
   height: 200px;
   overflow: hidden;
 `;

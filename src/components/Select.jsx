@@ -47,7 +47,7 @@ export default function Select({ id, selectedOption, onOptionChange }) {
         </StDropdownIcon>
       </StSelectedOption>
       {isOpen && (
-        <StOptionsList>
+        <StOptionsList id={id}>
           {options.map((option) => (
             <StOptionItem
               key={option.value}
@@ -64,6 +64,8 @@ export default function Select({ id, selectedOption, onOptionChange }) {
 
 const StSelectContainer = styled.div`
   position: relative;
+  display: inline-block;
+  z-index: 1;
 `;
 
 const StSelectedOption = styled.div`
@@ -83,19 +85,34 @@ const StDropdownIcon = styled.div`
 `;
 
 const StOptionsList = styled.ul`
-  width: 100%;
+  margin: 0;
   padding: 0;
-  margin-top: 10px;
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 2;
+  ${({ id }) => {
+    if (id === 0) {
+      return `
+        position : fixed;
+        width: 340px;
+        top: 560px;
+      `;
+    } else {
+      return `
+        position: absolute;
+        width: 100%;
+        margin-top: 10px;
+      `;
+    }
+  }}
 `;
 
 const StOptionItem = styled.li`
   padding: 10px 20px;
+  font-size: 12px;
   cursor: pointer;
 
   &:hover {

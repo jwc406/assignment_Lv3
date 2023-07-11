@@ -3,8 +3,8 @@ import React from "react";
 import { VscChevronRight } from "react-icons/vsc";
 import { VscBellDot } from "react-icons/vsc";
 
-import Button from "./../components/Button";
-import { StButtons } from "../styles/theme";
+import Button from "../components/Button";
+import { ButtonRow } from "../styles/theme";
 
 const onClickPrimaryButtonHandler = () => {
   alert("버튼을 만들어보세요!");
@@ -18,39 +18,40 @@ export default function ButtonContainer() {
   return (
     <section>
       <h1>Button</h1>
-      <StButtons>
+      <ButtonRow>
         <Button
           onClick={onClickPrimaryButtonHandler}
+          type="Basic"
+          size="P"
           color="#55efc4"
-          type="P"
           icon={<VscChevronRight />}
         >
           Large Primary Button
         </Button>
-        <Button color="#55efc4" type="M">
+        <Button type="Basic" size="M">
           Medium
         </Button>
-        <Button color="#55efc4" type="S">
+        <Button type="Basic" size="S">
           Small
         </Button>
-      </StButtons>
-      <StButtons>
+      </ButtonRow>
+      <ButtonRow>
         <Button
           onClick={onClickNagativeButtonHandler}
+          type="Nagative"
+          size="P"
           color="#FAB1A0"
-          type="P"
           icon={<VscBellDot />}
-          fc="#D63031"
         >
           Large Nagative Button
         </Button>
-        <Button color="#FAB1A0" type="M" fc="#D63031">
+        <Button type="Nagative" size="M">
           Medium
         </Button>
-        <Button color="#FAB1A0" type="S" fc="#D63031">
+        <Button type="Nagative" size="S">
           Small
         </Button>
-      </StButtons>
+      </ButtonRow>
     </section>
   );
 }

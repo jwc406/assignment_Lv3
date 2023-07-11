@@ -3,8 +3,7 @@ import { useRef, useEffect } from "react";
 import { styled } from "styled-components";
 
 import Button from "./Button";
-
-import { StButtons } from "../styles/theme";
+import { ButtonRow } from "../styles/theme";
 
 export default function Modal({ id, setModalOpen }) {
   const closeModal = () => {
@@ -27,21 +26,21 @@ export default function Modal({ id, setModalOpen }) {
   }, [id, setModalOpen]);
 
   return (
-    <StModal ref={modalRef} id={id}>
+    <ModalBox ref={modalRef} id={id}>
       {id === 0 ? (
         <>
           <p>
             닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지
             않아요.
           </p>
-          <StModalButtons>
-            <Button onClick={closeModal} color="#FAB1A0" type="S" fc="#D63031">
+          <ModalButtonRow>
+            <Button onClick={closeModal} type="Nagative" size="S">
               닫기
             </Button>
-            <Button color="#55efc4" type="S">
+            <Button type="Basic" size="S">
               확인
             </Button>
-          </StModalButtons>
+          </ModalButtonRow>
         </>
       ) : (
         <>
@@ -49,14 +48,14 @@ export default function Modal({ id, setModalOpen }) {
             닫기 버튼 1개가 있고, <br />
             외부 영역을 누르면 모달이 닫혀요.
           </p>
-          <StCloseButton onClick={closeModal}>X</StCloseButton>
+          <ModalCloseButton onClick={closeModal}>X</ModalCloseButton>
         </>
       )}
-    </StModal>
+    </ModalBox>
   );
 }
 
-const StModal = styled.div`
+const ModalBox = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -88,13 +87,13 @@ const StModal = styled.div`
   }};
 `;
 
-const StModalButtons = styled(StButtons)`
+const ModalButtonRow = styled(ButtonRow)`
   position: absolute;
   right: 30px;
   bottom: 10px;
 `;
 
-const StCloseButton = styled.button`
+const ModalCloseButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;

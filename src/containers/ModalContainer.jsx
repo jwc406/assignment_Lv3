@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
-import { StButtons } from "../styles/theme";
+import { ButtonRow } from "../styles/theme";
 
 export default function ModalContainer() {
   const [modalOpen, setModalOpen] = useState({ 0: false, 1: false });
@@ -20,37 +20,36 @@ export default function ModalContainer() {
   return (
     <section>
       <h1>Modal</h1>
-      <StButtons>
-        <Button onClick={() => onClickOpenHandler(0)} color="#55efc4" type="S">
+      <ButtonRow>
+        <Button onClick={() => onClickOpenHandler(0)} type="Basic" size="S">
           open modal
         </Button>
         {modalOpen[0] && (
           <>
             <Modal id={0} setModalOpen={setModalOpen} />
-            <StModalBg />
+            <ModalBgBox />
           </>
         )}
-
         <Button
           onClick={() => onClickOpenHandler(1)}
+          type="Nagative"
+          size="P"
           color="#FAB1A0"
-          type="P"
-          fc="#D63031"
         >
           open modal
         </Button>
         {modalOpen[1] && (
           <>
             <Modal id={1} setModalOpen={setModalOpen} />
-            <StModalBg />
+            <ModalBgBox />
           </>
         )}
-      </StButtons>
+      </ButtonRow>
     </section>
   );
 }
 
-const StModalBg = styled.div`
+const ModalBgBox = styled.div`
   position: fixed;
   top: 0;
   left: 0;

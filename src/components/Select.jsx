@@ -37,38 +37,39 @@ export default function Select({ id, selectedOption, onOptionChange }) {
   };
 
   return (
-    <StSelectContainer id={id} ref={dropdownRef}>
-      <StSelectedOption onClick={toggleDropdown}>
+    <SelectBox id={id} ref={dropdownRef}>
+      <SelectedOptionBox onClick={toggleDropdown}>
         {selectedOption
           ? options.find((option) => option.value === selectedOption).name
           : options[0].name}
-        <StDropdownIcon>
+        <SelectIconBox>
           <VscTriangleDown />
-        </StDropdownIcon>
-      </StSelectedOption>
+        </SelectIconBox>
+      </SelectedOptionBox>
+
       {isOpen && (
-        <StOptionsList id={id}>
+        <SelectOptionList id={id}>
           {options.map((option) => (
-            <StOptionItem
+            <SelectOptionItem
               key={option.value}
               onClick={() => handleOptionChange(option)}
             >
               {option.name}
-            </StOptionItem>
+            </SelectOptionItem>
           ))}
-        </StOptionsList>
+        </SelectOptionList>
       )}
-    </StSelectContainer>
+    </SelectBox>
   );
 }
 
-const StSelectContainer = styled.div`
+const SelectBox = styled.div`
   position: relative;
   display: inline-block;
   z-index: 1;
 `;
 
-const StSelectedOption = styled.div`
+const SelectedOptionBox = styled.div`
   width: 300px;
   height: 40px;
   padding: 0 20px;
@@ -80,11 +81,11 @@ const StSelectedOption = styled.div`
   cursor: pointer;
 `;
 
-const StDropdownIcon = styled.div`
+const SelectIconBox = styled.div`
   pointer-events: none;
 `;
 
-const StOptionsList = styled.ul`
+const SelectOptionList = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
@@ -93,24 +94,23 @@ const StOptionsList = styled.ul`
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 2;
+
   ${({ id }) => {
-    if (id === 0) {
-      return `
-        position : fixed;
+    return id === 0
+      ? `
+        position: fixed;
         width: 340px;
         top: 560px;
-      `;
-    } else {
-      return `
+      `
+      : `
         position: absolute;
         width: 100%;
         margin-top: 10px;
       `;
-    }
   }}
 `;
 
-const StOptionItem = styled.li`
+const SelectOptionItem = styled.li`
   padding: 10px 20px;
   font-size: 12px;
   cursor: pointer;

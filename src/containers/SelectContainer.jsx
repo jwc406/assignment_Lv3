@@ -14,9 +14,9 @@ export default function SelectContainer() {
   };
 
   return (
-    <StSectionContainer>
+    <SelectSection>
       <h1>Select</h1>
-      <StSelectWrapper>
+      <SelectRow>
         <Select
           id={0}
           selectedOption={selectedOptions[0]}
@@ -27,19 +27,19 @@ export default function SelectContainer() {
           selectedOption={selectedOptions[1]}
           onOptionChange={(option) => handleOptionChange(1, option)}
         />
-      </StSelectWrapper>
-    </StSectionContainer>
+      </SelectRow>
+    </SelectSection>
   );
 }
 
-const StSectionContainer = styled.section`
+const SelectSection = styled.section`
   border: 3px solid #dddddd;
-  margin: 50px 0;
+  margin-top: 50px;
   height: 200px;
   overflow: hidden;
 `;
 
-const StSelectWrapper = styled.div`
+const SelectRow = styled.div`
   display: flex;
   gap: 10px;
 `;

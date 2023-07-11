@@ -28,12 +28,12 @@ export const StButton = styled.button`
     switch (type) {
       case "Basic":
         return `
-          background: #55efc4;
+          background: var(--basic-color);
         `;
       case "Nagative":
         return `
-          background: #FAB1A0;
-          color: #D63031;
+          background: var(--nagative-color);
+          color: var(--nagative-fontColor);
         `;
       default:
         return `
@@ -71,4 +71,4 @@ export const StButton = styled.button`
   }};
 `;
 
-//#FAB1A0" fontcolor="#D63031" "#55efc4"
+//#FAB1A0" "#D63031" "#55efc4"

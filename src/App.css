@@ -1,3 +1,9 @@
+#root {
+  --basic-color: #55efc4;
+  --nagative-color: #fab1a0;
+  --nagative-fontColor: #d63031;
+}
+
 .App {
   text-align: center;
 }

@@ -1,2 +1,9 @@
-export const size = ["L", "M", "S"];
-export const type = ["primary", "nagative"];
+export const size = {
+  L: "large",
+  M: "medium",
+  S: "small",
+};
+export const type = {
+  P: "primary",
+  N: "nagative",
+};

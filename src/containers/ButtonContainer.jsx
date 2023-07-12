@@ -17,32 +17,32 @@ export default function ButtonContainer() {
       <ButtonRow>
         <Button
           onClick={onClickPrimaryButton}
-          size={size[0]}
-          type={type[0]}
+          type={type["P"]}
+          size={size["L"]}
           icon={<VscChevronRight />}
         >
           Large Primary Button
         </Button>
-        <Button size={size[1]} type={type[0]}>
+        <Button type={type["P"]} size={size["M"]}>
           Medium
         </Button>
-        <Button size={size[2]} type={type[0]}>
+        <Button type={type["P"]} size={size["S"]}>
           Small
         </Button>
       </ButtonRow>
       <ButtonRow>
         <Button
           onClick={onClickNagativeButton}
-          size={size[0]}
-          type={type[1]}
+          type={type["N"]}
+          size={size["L"]}
           icon={<VscBellDot />}
         >
           Large Nagative Button
         </Button>
-        <Button size={size[1]} type={type[1]}>
+        <Button type={type["N"]} size={size["M"]}>
           Medium
         </Button>
-        <Button size={size[2]} type={type[1]}>
+        <Button type={type["N"]} size={size["S"]}>
           Small
         </Button>
       </ButtonRow>

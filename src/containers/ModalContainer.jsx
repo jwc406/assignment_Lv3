@@ -23,8 +23,8 @@ export default function ModalContainer() {
       <ButtonRow>
         <Button
           onClick={() => onClickOpenHandler(0)}
-          size={size[2]}
-          type={type[0]}
+          type={type["P"]}
+          size={size["S"]}
         >
           open modal
         </Button>
@@ -36,8 +36,8 @@ export default function ModalContainer() {
         )}
         <Button
           onClick={() => onClickOpenHandler(1)}
-          size={size[0]}
-          type={type[1]}
+          type={type["N"]}
+          size={size["L"]}
         >
           open modal
         </Button>

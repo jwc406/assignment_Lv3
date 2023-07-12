@@ -38,10 +38,10 @@ export default function Modal({ id, setModalOpen }) {
             않아요.
           </p>
           <ModalButtonRow>
-            <Button onClick={closeModal} size={size[2]} type={type[1]}>
+            <Button onClick={closeModal} type={type["N"]} size={size["S"]}>
               닫기
             </Button>
-            <Button size={size[2]} type={type[0]}>
+            <Button type={type["P"]} size={size["S"]}>
               확인
             </Button>
           </ModalButtonRow>

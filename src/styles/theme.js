@@ -45,19 +45,19 @@ const typeHandler = (type) => {
 
 const sizeHandler = (size) => {
   switch (size) {
-    case "L":
+    case "large":
       return `
         height: 50px;
         width: 200px;
         font-weight: 700;
         background: white;
       `;
-    case "M":
+    case "medium":
       return `
         height: 45px;
         width: 130px;
       `;
-    case "S":
+    case "small":
       return `
         height: 40px;
         width: 100px;

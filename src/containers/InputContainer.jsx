@@ -39,7 +39,7 @@ export default function InputContainer() {
           <p>가격</p>
           <input type="text" onChange={onChangePrice} value={price} />
         </InputBox>
-        <Button onClick={onClickSaveButtton} size={size[2]} type={type[0]}>
+        <Button onClick={onClickSaveButtton} type={type["P"]} size={size["S"]}>
           저장
         </Button>
       </InputBoxRow>

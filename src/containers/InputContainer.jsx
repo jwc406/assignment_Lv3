@@ -21,8 +21,8 @@ export default function InputContainer() {
   };
 
   const onClickSaveButttonHandler = () => {
-    name && price
-      ? alert(`{ name: ${name}, price: ${price} }`)
+    name && price !== "0"
+      ? alert(`{ name: ${name}, price: ${price.replace(/,/g, "")} }`)
       : alert("둘 다 입력해주세요!");
   };
 

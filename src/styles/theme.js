@@ -7,12 +7,12 @@ export const ButtonRow = styled.div`
 `;
 
 export const StButton = styled.button`
+  ${({ type }) => typeHandler(type)};
+  ${({ size }) => sizeHandler(size)};
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  background: white;
-  border: none;
   border-radius: 10px;
   cursor: pointer;
 
@@ -23,52 +23,48 @@ export const StButton = styled.button`
   &:active {
     filter: brightness(90%);
   }
-
-  ${({ type }) => {
-    switch (type) {
-      case "Basic":
-        return `
-          background: var(--basic-color);
-        `;
-      case "Nagative":
-        return `
-          background: var(--nagative-color);
-          color: var(--nagative-fontColor);
-        `;
-      default:
-        return `
-          color: black;
-        `;
-    }
-  }};
-
-  ${({ size, color }) => {
-    switch (size) {
-      case "P":
-        return `
-          height: 50px;
-          width: 200px;
-          font-weight: 700;
-          background: white;
-          border: 3px solid ${color}
-        `;
-      case "M":
-        return `
-          height: 45px;
-          width: 130px;
-        `;
-      case "S":
-        return `
-          height: 40px;
-          width: 100px;
-        `;
-      default:
-        return `
-          height: 40px;
-          width: 100px;
-        `;
-    }
-  }};
 `;
+
+const typeHandler = (type) => {
+  switch (type) {
+    case "primary":
+      return `
+        background: var(--basic-color);
+        border: 3px solid var(--basic-color); 
+      `;
+    case "nagative":
+      return `
+        background: var(--nagative-color);
+        border: 3px solid var(--nagative-color); 
+        color: var(--nagative-fontColor);
+      `;
+    default:
+      return "";
+  }
+};
+
+const sizeHandler = (size) => {
+  switch (size) {
+    case "L":
+      return `
+        height: 50px;
+        width: 200px;
+        font-weight: 700;
+        background: white;
+      `;
+    case "M":
+      return `
+        height: 45px;
+        width: 130px;
+      `;
+    case "S":
+      return `
+        height: 40px;
+        width: 100px;
+      `;
+    default:
+      return "";
+  }
+};
 
 //#FAB1A0" "#D63031" "#55efc4"

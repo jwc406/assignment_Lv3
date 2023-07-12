@@ -4,12 +4,17 @@ import { styled } from "styled-components";
 import Select from "../components/Select";
 
 export default function SelectContainer() {
-  const [selectedOptions, setSelectedOptions] = useState({});
+  const [selectedOptions, setSelectedOptions] = useState({
+    0: "react",
+    1: "react",
+  });
+  // select 컴포넌트 각각의 id를 설정, 옵션 초기값 react
 
+  // setState에 콜백함수를 사용하면 이전의 state값을 사용 가능
   const handleOptionChange = (id, option) => {
     setSelectedOptions((prevSelectedOptions) => ({
-      ...prevSelectedOptions,
-      [id]: option.value,
+      ...prevSelectedOptions, // 이전 state 값을 복사
+      [id]: option.value, // 변경된 id에 맞는 옵션 값을 업데이트
     }));
   };
 

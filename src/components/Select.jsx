@@ -14,8 +14,8 @@ export default function Select({ id, selectedOption, onOptionChange }) {
   ];
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -39,9 +39,7 @@ export default function Select({ id, selectedOption, onOptionChange }) {
   return (
     <SelectBox id={id} ref={dropdownRef}>
       <SelectedOptionBox onClick={toggleDropdown}>
-        {selectedOption
-          ? options.find((option) => option.value === selectedOption).name
-          : options[0].name}
+        {options.find((option) => option.value === selectedOption).name}
         <SelectIconBox>
           <VscTriangleDown />
         </SelectIconBox>

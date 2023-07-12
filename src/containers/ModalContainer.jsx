@@ -4,8 +4,8 @@ import { styled } from "styled-components";
 
 import Button from "../components/Button";
 import Modal from "../components/Modal";
-
 import { ButtonRow } from "../styles/theme";
+import { size, type } from "../utils/buttonStyle";
 
 export default function ModalContainer() {
   const [modalOpen, setModalOpen] = useState({ 0: false, 1: false });
@@ -21,7 +21,11 @@ export default function ModalContainer() {
     <section>
       <h1>Modal</h1>
       <ButtonRow>
-        <Button onClick={() => onClickOpenHandler(0)} type="Basic" size="S">
+        <Button
+          onClick={() => onClickOpenHandler(0)}
+          size={size[2]}
+          type={type[0]}
+        >
           open modal
         </Button>
         {modalOpen[0] && (
@@ -32,9 +36,8 @@ export default function ModalContainer() {
         )}
         <Button
           onClick={() => onClickOpenHandler(1)}
-          type="Nagative"
-          size="P"
-          color="#FAB1A0"
+          size={size[0]}
+          type={type[1]}
         >
           open modal
         </Button>
